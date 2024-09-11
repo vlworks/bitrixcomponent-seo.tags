@@ -1,0 +1,4 @@
+<?php
+$MESS['SEO_TAGS_IBLOCK_NAME_VENDOR'] = "VLWorks";
+$MESS['SEO_TAGS_IBLOCK_COMPONENT_NAME'] = "SEO.Тэги";
+$MESS['SEO_TAGS_IBLOCK_СOMPONENT_DESCRIPTION'] = "Теги каталога с SEO описанием";

@@ -1,0 +1,17 @@
+{
+    "name": "vlworks/seo.tags",
+    "description": "Компонент теги для seo",
+    "type": "bitrix-d7-component",
+    "require": {
+        "php": "^8.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladislav Lyakishev",
+            "email": "vlad169@yandex.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "homepage": "https://github.com/vlworks/bitrixcomponent-seo.tags"
+}
