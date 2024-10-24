@@ -14,8 +14,10 @@ if (empty($arResult['ITEMS']))
 
         if ($isActive)
         {
-            if (!empty($arItem['PROPERTY_TITLE_VALUE']))
+            if (!empty($arItem['PROPERTY_TITLE_VALUE'])) {
                 $APPLICATION->SetPageProperty('title', $arItem['PROPERTY_TITLE_VALUE']);
+                $APPLICATION->SetPageProperty('seo_title', $arItem['PROPERTY_TITLE_VALUE']);
+            }
 
             if (!empty($arItem['PROPERTY_DESCRIPTION_VALUE']))
                 $APPLICATION->SetPageProperty('description', $arItem['PROPERTY_DESCRIPTION_VALUE']);
@@ -29,3 +31,15 @@ if (empty($arResult['ITEMS']))
     </li>
     <?endforeach;?>
 </ul>
+
+<?php
+/**
+ * Отложенная функция (из-за перебивания title)
+ * Использовать для вывода заголовка раздела, если требуется подмена для заголовков Тега
+ * $APPLICATION->AddBufferContent(function () use ($arResult) {
+ *      global $APPLICATION;
+ *      return $APPLICATION->GetPageProperty('seo_title')
+ *          ? $APPLICATION->GetPageProperty('seo_title')
+ *          : $arResult['SECTION']['NAME'];
+ * });
+ */
