@@ -1,5 +1,6 @@
 <?php
 
+use Bitrix\Iblock\InheritedProperty\ElementValues;
 use BMarketing\ComponentHelper;
 
 class SeoTagsComponent extends CBitrixComponent
@@ -58,10 +59,20 @@ class SeoTagsComponent extends CBitrixComponent
         while ($obj = $res->GetNext())
         {
             $obj['IS_ACTIVE'] = $curPage === $obj['PROPERTY_URL_VALUE'] ? 'Y' : 'N';
+            $obj['SEO_VALUES'] = $this->getSeoValues($obj['ID']);
             $result[] = $obj;
         }
 
         return $result;
+    }
+
+    protected function getSeoValues(int|string $elementId): array
+    {
+        $ipropValue = new ElementValues($this->arParams['IBLOCK_ID'], $elementId);
+
+        $values = $ipropValue->getValues();
+
+        return $values;
     }
 
     final protected function mergeResult(string $key, string | array $value): void
